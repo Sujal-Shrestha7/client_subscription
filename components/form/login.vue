@@ -91,7 +91,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background: #6d44b8;
+                    background: #1c43c4;
                 }
             }
             .login {
