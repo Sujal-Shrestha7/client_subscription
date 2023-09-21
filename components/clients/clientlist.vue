@@ -7,6 +7,11 @@
       <h2>Clients</h2>
     </div>
     <div class="wrapper">
+      <div class="subscription">
+        <div class="btn-span">Within a week</div>
+        <div class="btn-span">within a month</div>
+        <div class="btn-span">In a year</div>
+      </div>
       <div class="client-list-iterate">
         <div class="client-header-inside">
           <div class="table-header-inside serial">S.N.</div>
