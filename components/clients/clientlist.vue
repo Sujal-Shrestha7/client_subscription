@@ -45,8 +45,26 @@
   display: flex;
   flex-direction: row;
   height: 100%;
-  background: #fff;
+  background: rgb(226, 237, 250);
+  .subscription {
+    margin-top: 60px;
+    margin-right: 0;
+    .btn-span {
+      border-bottom: 1px solid #fff;
+      padding: 5px;
+      padding: 8px 20px;
+
+      font-size: small;
+      &:active,
+      &:hover {
+        background: #fff;
+        transition: 0.2s ease-in;
+        cursor: pointer;
+      }
+    }
+  }
 }
+
 .client-wrapper {
   height: 100vh;
   width: 100vw;
@@ -77,10 +95,11 @@
     // height: 100%;
     width: 60%;
     background: #fff;
-    padding: 20px;
+    padding: 40px;
     position: relative;
     background-color: #ffffff;
     border: none;
+    border-radius: 5px;
   }
 }
 
@@ -91,12 +110,13 @@
   padding: 10px;
   color: #000;
   width: 100%;
-  border-top: 1px solid rgb(145, 144, 144);
-  border-bottom: 1px solid rgb(132, 131, 131);
+  border-top: 2px solid rgb(182, 190, 196);
+  border-bottom: 2px solid rgb(182, 190, 196);
   border-radius: 1px;
 }
 .table-header-inside {
-  font-size: medium;
+  font-size: small;
+  font-weight: 900;
 }
 .serial {
   width: 9%;
@@ -126,6 +146,7 @@
 
   &:hover {
     background-color: rgb(181, 212, 249);
+    cursor: pointer;
   }
 }
 
