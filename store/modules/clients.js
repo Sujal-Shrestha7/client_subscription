@@ -38,4 +38,13 @@ export const actions = {
       throw err;
     }
   },
+
+  async editClientActions({ commit }, payload) {
+    try {
+      const response = await this.$axios.$put('');
+    } catch (err) {
+      console.log('Client Edit Failed : ', err);
+      throw err;
+    }
+  },
 };
