@@ -15,15 +15,21 @@
       <div class="client-list-iterate">
         <div class="client-header-inside">
           <div class="table-header-inside serial">S.N.</div>
-          <div class="table-header-inside name">Name</div>
-          <div class="table-header-inside org">Organization</div>
+          <div class="table-header-inside org">Name</div>
+          <div class="table-header-inside name">Contact</div>
           <div class="table-header-inside subs">Subscription</div>
         </div>
-        <div v-for="number in iterate" :key="number" class="client-details">
-          <div class="table-data serial">{{ number }}</div>
-          <div class="table-data name">Anyone None</div>
-          <div class="table-data org">AnyCompony Pvt. Ltd.</div>
-          <div class="table-data subs">3 months</div>
+        <div v-for="(client, index) in getClients" class="client-details">
+          <div class="table-data serial">{{ index + 1 }}</div>
+          <div class="table-data org">{{ client.name }}</div>
+          <div class="table-data name">{{ client.contact }}</div>
+          <div class="table-data subs">{{ client.expiryDate }}</div>
+          <div>
+            <button type="button" @click="editClient(client)">edit</button>
+          </div>
+          <div>
+            <button type="button" @click="deleteCLient(client)">delete</button>
+          </div>
         </div>
       </div>
 
@@ -36,6 +42,9 @@
           <div class="subs-status">Hello</div>
         </div>
       </div>
+    </div>
+    <div>
+      <button type="button" @click="fetchCLient()">Demo</button>
     </div>
   </div>
 </template>
@@ -167,11 +176,45 @@
 </style>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
   data() {
     return {
       iterate: 5,
-    }
+    };
   },
-}
+  computed: {
+    ...mapGetters('modules/clients', ['getClients']),
+    // computedValue() {
+    //   console.log(this.$store.getters.getClients);
+    //   console.log('computed value has been hit');
+
+    //   debugger;
+    //   // return this.$store.getters.getClients;
+    // },
+  },
+  async mounted() {
+    await this.getClientsAction();
+  },
+
+  methods: {
+    ...mapActions('modules/clients', [
+      'getClientsAction',
+      'editClientAction',
+      'deleteClientAction',
+    ]),
+
+    async fetchCLient() {
+      await this.getClientsAction();
+    },
+
+    async editClient(client) {
+      await this.editClientAction(client);
+    },
+
+    async deleteClient(client) {
+      await this.deleteClientAction(client);
+    },
+  },
+};
 </script>
